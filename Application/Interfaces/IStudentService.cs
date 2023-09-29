@@ -10,9 +10,9 @@ namespace Application.Interfaces
 {
     public interface IStudentService
     {
-        List<Student> GetAllStudent();
-        Student GetStudentById(int id);
-        Student AddNewStudent(StudentAddDto student);
+        IEnumerable<StudentDto> GetAllStudent();
+        StudentDto GetStudentById(int id);
+        StudentDto AddNewStudent(StudentAddDto student);
         void DeleteStudent(int id);
 
     }

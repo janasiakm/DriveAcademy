@@ -7,16 +7,16 @@ namespace DriveAcademyApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InstructorController : Controller
+    public class InstructorsController : Controller
     {
         private readonly IInstructorService _instructorService;
 
-        public InstructorController(IInstructorService instructorService)
+        public InstructorsController(IInstructorService instructorService)
         {
             _instructorService = instructorService;
 
         }
-        [SwaggerOperation(Summary = "Retrieves all instructor")]
+        [SwaggerOperation(Summary = "Retrieves all instructors")]
         [HttpGet]
         public IActionResult Get()
         {

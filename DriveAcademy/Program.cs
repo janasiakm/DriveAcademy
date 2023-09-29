@@ -13,6 +13,9 @@ builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<IInstructorRepository, InstructorRepository>();
 builder.Services.AddScoped<IInstructorService, InstructorService>();
 
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentService, StudentService>();
+
 builder.Services.AddSingleton(AutoMapperConfig.Initialize());
 
 builder.Services.AddControllers();

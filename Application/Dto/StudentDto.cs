@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Application.Dto
 {
-    public class StudentAddDto
+    public class StudentDto
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string DateOfBirth { get; set; }
-        public string PhoneNumber { get; set; }
         public string Category { get; set; }
-        public bool Teory { get; set; }
+        public string PhoneNumber { get; set; }
 
 
     }
