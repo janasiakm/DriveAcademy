@@ -19,6 +19,7 @@ namespace Application.Mappings
                 cfg.CreateMap<CarAddDto, Car>();
 
                 cfg.CreateMap<StudentAddDto, Student>();
+                cfg.CreateMap<Student, StudentDto>();
 
                 cfg.CreateMap<InstructorAddDto, Instructor>();
                 cfg.CreateMap<Instructor, InstructorDto>();
