@@ -1,0 +1,97 @@
+﻿@model DriveAcademyMVC.Models.Timetable
+
+@{
+    ViewData["Title"] = "Zaplanuj jazdę";
+}
+<h1>@ViewData["Title"]</h1>
+
+@using (Html.BeginForm("Add", "Timetable", FormMethod.Post))
+{
+    @Html.ValidationSummary();
+
+<form asp-action="Add" >
+    <div class="form-group">
+        <label asp-for="Year">Rok</label>
+        <input asp-for="Year" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Week">Tydzien</label>
+        <input asp-for="Week" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Hour">Ilosc godzin</label>
+        <input asp-for="Hour" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CarId">Samochód</label>
+        <input asp-for="CarId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InstructorId">Instructor</label>
+        <input asp-for="InstructorId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="StudentId">Kursant</label>
+        <input asp-for="StudentId" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Paid">Zapłacono</label>
+        <input asp-for="Paid" class="form-control" />
+    </div>
+
+<div class="form-group">
+    <label asp-for="HourStart">Data i Godzina:</label>
+    <input asp-for="HourStart" class="form-control" type="date">
+    <select id="hourSelect" class="form-control">
+        @for (int i = 6; i <= 22; i++)
+        {
+            <option value="@i">@i:00</option>
+        }
+    </select>
+</div>
+
+    <button type="submit" class="btn btn-primary">Dodaj jazdę</button>
+</form>
+        
+     
+
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var datetimeInput = document.querySelector('input[type="datetime-local"]');
+        var dateInput = document.querySelector('input[type="date"]');
+        var timeInput = document.querySelector('input[type="time"]');
+
+        datetimeInput.addEventListener("change", function () {
+            dateInput.value = datetimeInput.value.split('T')[0];
+            timeInput.value = datetimeInput.value.split('T')[1];
+        });
+
+        dateInput.addEventListener("change", function () {
+            datetimeInput.value = dateInput.value + "T" + timeInput.value;
+        });
+
+        timeInput.addEventListener("change", function () {
+            datetimeInput.value = dateInput.value + "T" + timeInput.value;
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

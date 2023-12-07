@@ -13,8 +13,8 @@ namespace Infrastructure.Repositories
 
         private static readonly ISet<Student> _student = new HashSet<Student>()
         {
-            new Student(1,"Jan","Kowalski","2002-01-05","789789789","B",false),
-            new Student(2,"Piotr","Nowak","2003-02-03","123456789","A2",false),
+            new Student(1,"Jan","Kowalski","2002-01-05","789789789","B",0),
+            new Student(2,"Piotr","Nowak","2003-02-03","123456789","A2",0),
             
         };
 

@@ -1,0 +1,45 @@
+﻿@model DriveAcademyMVC.Models.Instructor
+
+@{
+    ViewData["Title"] = "Dodawanie Instruktora";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@using (Html.BeginForm("Add", "Instructor", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                
+                <div class="form-group">
+                    @Html.LabelFor(x => x.FirstName, "Imię:")
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.LastName, "Nazwisko:")
+                    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.DateOfBirth, "Data urodzenia (format: YYYYMMDD):")
+                    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.IdNumber, "Nr Uprawnień:")
+                    @Html.TextBoxFor(x => x.IdNumber, new { @class = "form-control" })
+                </div>
+
+                <button type="submit" class="btn btn-primary">Wyślij dane</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+}
+
