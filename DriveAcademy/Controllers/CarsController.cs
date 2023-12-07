@@ -1,5 +1,6 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
+using DriveAcademyApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -10,16 +11,19 @@ namespace DriveAcademyApi.Controllers
     public class CarsController : Controller
     {
         private readonly ICarService _carService;
+        private readonly DriveAcademyDbContext _context;
 
-        public CarsController(ICarService carService)
+        public CarsController(ICarService carService, DriveAcademyDbContext context)
         {
             _carService = carService;
+            _context = context;
 
         }
         [SwaggerOperation(Summary = "Retrieves all cars")]
         [HttpGet]
         public IActionResult Get()
         {
+            //var cars = _context.Cars.
             var cars = _carService.GetAllCars();
             return Ok(cars);
         }

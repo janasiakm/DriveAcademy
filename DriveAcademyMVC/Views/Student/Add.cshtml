@@ -1,0 +1,44 @@
+﻿@model DriveAcademyMVC.Models.Student
+
+@{
+    ViewData["Title"] = "Dodawanie Kursanta";
+}
+<h1>@ViewData["Title"]</h1>
+
+@using (Html.BeginForm("Add", "Student", FormMethod.Post))
+{
+    @Html.ValidationSummary();
+
+<form asp-action="Add" >
+    <div class="form-group">
+        <label asp-for="FirstName">Imię:</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName">Nazwisko:</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateOfBirth">Data urodzenia:</label>
+        <input asp-for="DateOfBirth" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber">Numer telefonu:</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Category">Kategoria:</label>
+        <input asp-for="Category" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dodaj kursanta</button>
+</form>
+        
+     
+
+}
+

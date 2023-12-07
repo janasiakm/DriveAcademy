@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DriveAcademyMVC.Models.Student>
+
+@{
+    ViewData["Title"] = "Lista kursantów: ";
+}
+<a href="@Url.Action("Add")" class="btn btn-success">Dodaj nowego kursanta</a>
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+            <th>Numer telefonu</th>
+            <th>Kategoria</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.DateOfBirth</td>
+                <td>@student.PhoneNumber</td>
+                <td>@student.Category</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = student.Id })" class="btn btn-primary">Edytuj</a>
+                    <a href="@Url.Action("Delete", new { id = student.Id })" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -26,14 +26,14 @@ namespace DriveAcademyApi.Controllers
 
         [SwaggerOperation(Summary = "Retrieves instructor by Id")]
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Instructor(int id)
         {
             var instructor = _instructorService.GetInstructorById(id);
             if (instructor == null)
             {
                 return NotFound();
             }
-            return Ok(instructor);
+            return View(instructor);
         }
 
 

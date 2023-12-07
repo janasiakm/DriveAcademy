@@ -1,0 +1,41 @@
+﻿@model DriveAcademyMVC.Models.Car
+
+@{
+    ViewData["Title"] = "Dodaj nowy samochód";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@using (Html.BeginForm("Add", "Car", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Mark, "Marka:")
+                    @Html.TextBoxFor(x => x.Mark, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Model, "Modle:")
+                    @Html.TextBoxFor(x => x.Model, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProdYear, "Rok produkcji:")
+                    @Html.TextBoxFor(x => x.ProdYear, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.NrRej, "Nr Rejestracyjny:")
+                    @Html.TextBoxFor(x => x.NrRej, new { @class = "form-control" })
+                </div>
+
+                <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+        </div>
+    </div>
+}

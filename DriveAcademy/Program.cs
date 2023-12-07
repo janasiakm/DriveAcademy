@@ -2,7 +2,9 @@ using Application.Interfaces;
 using Application.Mappings;
 using Application.Services;
 using Domain.Interfaces;
+using DriveAcademyApi.Models;
 using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,10 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 
 builder.Services.AddSingleton(AutoMapperConfig.Initialize());
+
+builder.Services.AddDbContext<DriveAcademyDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DriveDB")));
+    
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
